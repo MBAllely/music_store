@@ -1,0 +1,6 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Moustache and Turntable Wax</h1>
+  </div>
+  <album-list [album-list]="albums"></album-list>
+<div>
