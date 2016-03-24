@@ -17,10 +17,12 @@ import { SearchPipe } from './search.pipe';
         <input class="form-control input-lg"
         placeholder="Enter artist or album" #query>
         <button class="btn-lg btn btn-default"
-        type="button" (click)=startSearch(query)>Search</button>
+        type="button" (click)="startSearch(query.value)">Search</button>
       </div>
-      <div class="form-group">      
-        <genre-list [allAlbums]="albumList"></genre-list>
+      <div class="form-group">
+        <genre-list [allAlbums]="albumList" (choice)="startSearch($event)">
+        </genre-list>
+
       </div>
     </div>
     <div class="row">
@@ -54,8 +56,8 @@ export class AlbumListComponent {
   selectAlbum(focusAlbum: Album) {
     this.selectedAlbum = focusAlbum;
   }
-  startSearch(query: HTMLInputElement) {
-    this.searchString = query.value;
+  startSearch(query: string) {
+    this.searchString = query;
     console.log(this.searchString);
   }
 

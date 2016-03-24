@@ -14,8 +14,9 @@ export class SearchPipe implements PipeTransform {
       return input.filter((album) => {
         var name = album.name.toLowerCase().trim();
         var artist = album.artist.toLowerCase().trim();
+        var genre = album.genre.toLowerCase().trim();
         var searchString = args[0].toLowerCase().trim();
-        return (name.includes(searchString) || artist.includes(searchString));
+        return (name.includes(searchString) || artist.includes(searchString) || genre.includes(searchString));
       });
     }
   }
